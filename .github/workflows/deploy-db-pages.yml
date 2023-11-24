@@ -41,12 +41,8 @@ jobs:
           rsync -avz --exclude node_modules --exclude '*.js.map' --exclude android --exclude ios ./static/ ./public/static/
           ls -lR ./public
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@1
+      - name: Upload Web Files
+        uses: actions/upload-artifact@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: 2553ea8236c11ea0f88de28fce1cbfee
-          projectName: "logseq-db-demo"
-          directory: "public"
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: "main"
+          name: Web Files
+          path: public
