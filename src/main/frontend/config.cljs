@@ -12,7 +12,7 @@
             [goog.crypt.Md5]
             [goog.crypt :as crypt]))
 
-(goog-define DEV-RELEASE false)
+(goog-define DEV-RELEASE true)
 (defonce dev-release? DEV-RELEASE)
 (defonce dev? ^boolean (or dev-release? goog.DEBUG))
 
